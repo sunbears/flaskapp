@@ -1,0 +1,10 @@
+#select_container {
+    background-color:rgb(223, 221, 221);
+    padding: 25px;
+    margin-bottom:50px;
+}
+
+.panel panel_primary {
+    margin-left:10px;
+    padding: 5px;
+}

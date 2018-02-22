@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Belly Button Diversity</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{url_for('static', filename='js/app.js')}}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Belly Button Biodiversity Dashboard</h1>
+            <p>Use the interactive charts below to explore the dataset</p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div id = "select_container">
+                    <p><strong>SELECT Sample:</strong></p>
+                    <select id="selDataset" onchange="optionChanged(this.value)">
+                    {% for sample in samples_list %}
+                        <option value = "{{ sample }}"> {{sample}}</option>
+                    {% endfor %}                         
+                    </select> 
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Sample MetaDeta</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">AGE:</li>
+                            <li class="list-group-item">BBTYPE: </li>
+                            <li class="list-group-item">ETHNICITY:</li>
+                            <li class="list-group-item">GENDER:</li>
+                            <li class="list-group-item">LOCATION:</li>
+                            <li class="list-group-item">SAMPLEID:</li>
+                    </ul>
+                <div id="plotly_table"></div>
+                </div>  
+            </div>
+            <div class="col-md-6">
+                <div id="pie">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="gauge"></div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col-md-12">
+                <div id = "bubble-target">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
